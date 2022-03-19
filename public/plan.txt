@@ -1,12 +1,8 @@
 To do:
 Demo Video
-New APIs/data
 
 In progress:
-CO2e scale/severity indicator
-Convert to number of trees or other easy number
-Add new calculations from new API
-
+CO2e scale/severity indicator - thalen
 
 Done:
 Extra fancy CSS
@@ -20,3 +16,8 @@ Logo/Icon
 Better CSS styling
 KM to Miles converter
 Error checking
+Add new calculations from new API
+Github
+Github Pages
+New APIs/data
+Convert to number of trees or other easy number

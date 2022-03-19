@@ -7,17 +7,17 @@
     <title>Carbon Calculator</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://kit.fontawesome.com/29ce419f3c.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
 </head>
 <body class="animate-fadeS h-max 2xl:h-screen">
     <header class="text-2xl p-2 text-center">
         <div><img src="logo.png" alt="Carbon Callculator" class="mx-auto w-64 my-0"></div>
     </header>
 
-    <div class="flex sm:flex-row flex-col flex-wrap justify-center text-center">
+    <div class="flex sm:flex-row flex-col flex-wrap justify-center">
         
         <div id="car" class="border-2 rounded-lg m-5 py-8 p-5 sm:w-1/4 w-11/12 border-4 border-green-400 rounded-2xl animate-slideL bg-white/30 hover:bg-white/50">
             <h1 class="text-xl font-bold">Car</h1>
-            <form action="">
                 Choose a vehicle: 
                 <select name="cars" id="cars" class="m-2">
                     <option value="SmallDieselCar">Small Diesel Car</option>
@@ -39,20 +39,15 @@
                     <option value="SmallPetrolCar">Small Petrol Car</option>
                     <option value="MediumPetrolCar">Medium Petrol Car</option>
                     <option value="LargePetrolCar">Large Petrol Car</option>
-                    <option value="SmallMotorBike">Small Motor Bike</option>
-                    <option value="MediumMotorBike">Medium Motor Bike</option>
-                    <option value="LargeMotorBike">Large Motor Bike</option>
                 </select>
                 <br>
                 Distance (mi):
                 <input id="cdist" type="number" placeholder="0" class="border-2 rounded-lg p-2 m-2">
-                <div class="mt-2 cursor-pointer"><button" id="submit" class="ripple-bg-green-200 cursor-pointer border-0 border-green-400 rounded-lg p-2 bg-green-400 text-white font-bold hover:bg-white hover:text-green-400 m-2 hover:border-2" onclick="car()">Submit</button></div>
-            </form> 
+                <div class="mt-2 cursor-pointer"><button" id="submit" class="ripple-bg-green-200 cursor-pointer border-0 border-green-400 rounded-lg p-2 bg-green-400 text-white font-bold hover:bg-white hover:text-green-400 m-2 hover:border-2 px-3" onclick="car()">Add</button></div>
         </div>
 
         <div id="ptrans" class="border-2 rounded-lg m-5 py-8 p-5 sm:w-1/4 w-11/12 border-4 border-green-400 rounded-2xl animate-fadeL bg-white/30 hover:bg-white/50">
             <h1 class="text-xl font-bold">Public transit</h1>
-            <form action="">
                 Choose a vehicle: 
                 <select name="transit" id="transit" class="m-2">
                     <option value="Taxi">Taxi</option>
@@ -68,13 +63,11 @@
                 <br>
                 Distance (mi):
                 <input id="tdist" type="number" placeholder="0" class="border-2 rounded-lg p-2 m-2">
-                <div class="mt-2 cursor-pointer"><button" id="submit" class="ripple-bg-green-200 cursor-pointer border-0 border-green-400 rounded-lg p-2 bg-green-400 text-white font-bold hover:bg-white hover:text-green-400 m-2 hover:border-2" onclick="transit()">Submit</button></div>
-            </form> 
+                <div class="mt-2 cursor-pointer"><button" id="submit" class="ripple-bg-green-200 cursor-pointer border-0 border-green-400 rounded-lg p-2 bg-green-400 text-white font-bold hover:bg-white hover:text-green-400 m-2 hover:border-2 px-3" onclick="transit()">Add</button></div>
         </div>
 
         <div id="plane" class="border-2 rounded-lg m-5 py-8 p-5 sm:w-1/4 w-11/12 border-4 border-green-400 rounded-2xl animate-slideR bg-white/30 hover:bg-white/50">
             <h1 class="text-xl font-bold">Plane flight</h1>
-            <form action="">
                 Choose a flight: 
                 <select name="flight" id="flight" class="m-2">
                     <option value="DomesticFlight">Domestic Flight</option>
@@ -88,13 +81,11 @@
                 <br>
                 Distance (mi):
                 <input id="fdist" type="number" placeholder="0" class="border-2 rounded-lg p-2 m-2">
-                <div class="mt-2 cursor-pointer"><button" id="submit" class="ripple-bg-green-200 cursor-pointer border-0 border-green-400 rounded-lg p-2 bg-green-400 text-white font-bold hover:bg-white hover:text-green-400 m-2 hover:border-2" onclick="flight()">Submit</button></div>
-            </form> 
+                <div class="mt-2 cursor-pointer"><button" id="submit" class="ripple-bg-green-200 cursor-pointer border-0 border-green-400 rounded-lg p-2 bg-green-400 text-white font-bold hover:bg-white hover:text-green-400 m-2 hover:border-2 px-3" onclick="flight()">Add</button></div>
         </div>
 
         <div id="energy" class="border-2 rounded-lg m-5 py-8 p-5 sm:w-1/4 w-11/12 border-4 border-green-400 rounded-2xl animate-slideL bg-white/30 hover:bg-white/50">
             <h1 class="text-xl font-bold">Clean Energy (Monthly)</h1>
-            <form action="">
                 Choose an energy type: 
                 <select name="etype" id="etype" class="m-2">
                     <option value="Solar">Solar</option>
@@ -108,14 +99,12 @@
                 <br>
                 Consumption (KWH):
                 <input id="edist" type="number" placeholder="0" class="border-2 rounded-lg p-2 m-2">
-                <div class="mt-2"><button" id="submit" class="ripple-bg-green-200 cursor-pointer border-0 border-green-400 rounded-lg p-2 bg-green-400 text-white font-bold hover:bg-white hover:text-green-400 m-2 hover:border-2" onclick="energy()">Submit</button></div>
-            </form> 
+                <div class="mt-2"><button" id="submit" class="ripple-bg-green-200 cursor-pointer border-0 border-green-400 rounded-lg p-2 bg-green-400 text-white font-bold hover:bg-white hover:text-green-400 m-2 hover:border-2 px-3" onclick="energy()">Add</button></div>
             
         </div>
 
-        <div id="food" class="border-2 rounded-lg m-5 py-8 p-5 sm:w-1/4 w-11/12 border-4 border-green-400 rounded-2xl animate-slideR bg-white/30 hover:bg-white/50">
+        <div id="food" class="border-2 rounded-lg m-5 py-8 p-5 sm:w-1/4 w-11/12 border-4 border-green-400 rounded-2xl animate-fadeL bg-white/30 hover:bg-white/50">
             <h1 class="text-xl font-bold">Food</h1>
-            <form action="">
                 Choose a food type: 
                 <select name="ftype" id="ftype" class="m-2">
                     <option value="d">Drinks</option>
@@ -132,8 +121,21 @@
                 <br>
                 Calories:
                 <input id="cal" type="number" placeholder="0" class="border-2 rounded-lg p-2 m-2">
-                <div class="mt-2"><button" id="submit" class="ripple-bg-green-200 cursor-pointer border-0 border-green-400 rounded-lg p-2 bg-green-400 text-white font-bold hover:bg-white hover:text-green-400 m-2 hover:border-2" onclick="food()">Submit</button></div>
-            </form> 
+                <div class="mt-2"><button" id="submit" class="ripple-bg-green-200 cursor-pointer border-0 border-green-400 rounded-lg p-2 bg-green-400 text-white font-bold hover:bg-white hover:text-green-400 m-2 hover:border-2 px-3" onclick="food()">Add</button></div>
+            
+        </div>
+
+        <div id="fuel" class="border-2 rounded-lg m-5 py-8 p-5 sm:w-1/4 w-11/12 border-4 border-green-400 rounded-2xl animate-slideR bg-white/30 hover:bg-white/50">
+            <h1 class="text-xl font-bold">Fuel</h1>
+                Fuel type: 
+                <select name="futype" id="futype" class="m-2">
+                    <option value="Petrol">Petrol</option>
+                    <option value="Diesel">Diesel</option>
+                    <option value="LPG">LPG</option>
+                </select>
+                <br>
+                Litres: <input id="litre" type="number" placeholder="0" class="border-2 rounded-lg p-2 m-2">
+                <div class="mt-2"><button" id="submit" class="ripple-bg-green-200 cursor-pointer border-0 border-green-400 rounded-lg p-2 bg-green-400 text-white font-bold hover:bg-white hover:text-green-400 m-2 hover:border-2 px-3" onclick="fuel()">Add</button></div>
             
         </div>
     </div>
@@ -161,6 +163,9 @@
         </script>
     
 
+    </div>
+    <div id="result" class="text-center text-xl m-5">
+        <h1>Your Carbon footprint in tree kills: <span id="treeKill" class="font-bold cursor-pointer">0</span></h1>
     </div>
     
     
