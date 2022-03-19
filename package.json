@@ -1,0 +1,21 @@
+{
+  "name": "planetfood",
+  "version": "1.0.0",
+  "description": "",
+  "main": "tailwind.config.js",
+  "scripts": {
+    "build-css": "tailwindcss build src/styles.css -o public/styles.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.0.23"
+  },
+  "dependencies": {
+    "browserify": "^17.0.0",
+    "fetch": "^1.1.0",
+    "tailwindcss-ripple": "^0.7.1",
+    "vanillajs-browser-helpers": "^2.0.2"
+  }
+}

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-[url('liquid-cheese1.svg')] bg-no-repeat bg-cover bg-center">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carbon Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/29ce419f3c.js" crossorigin="anonymous"></script>
+</head>
+<body class="animate-fadeS h-max 2xl:h-screen">
+    <header class="text-2xl p-2 text-center">
+        <div><img src="logo.png" alt="Carbon Callculator" class="mx-auto w-64 my-0"></div>
+    </header>
+
+    <div class="flex sm:flex-row flex-col flex-wrap justify-center text-center">
+        
+        <div id="car" class="border-2 rounded-lg m-5 py-8 p-5 sm:w-1/4 w-11/12 border-4 border-green-400 rounded-2xl animate-slideL bg-white/30 hover:bg-white/50">
+            <h1 class="text-xl font-bold">Car</h1>
+            <form action="">
+                Choose a vehicle: 
+                <select name="cars" id="cars" class="m-2">
+                    <option value="SmallDieselCar">Small Diesel Car</option>
+                    <option value="MediumDieselCar">Medium Diesel Car</option>
+                    <option value="LargeDieselCar">Large Diesel Car</option>
+                    <option value="MediumHybridCar">Medium Hybrid Car</option>
+                    <option value="LargeHybridCar">Large Hybrid Car</option>
+                    <option value="MediumLPGCar">Medium LPG Car</option>
+                    <option value="LargeLPGCar">Large LPG Car</option>
+                    <option value="MediumCNGCar">Medium CNG Car</option>
+                    <option value="LargeCNGCar">Large CNG Car</option>
+                    <option value="SmallPetrolVan">Small Petrol Van</option>
+                    <option value="LargePetrolVan">Large Petrol Van</option>
+                    <option value="SmallDielselVan">Small Diesel Van</option>
+                    <option value="MediumDielselVan">Medium Diesel Van</option>
+                    <option value="LargeDielselVan">Large Diesel Van</option>
+                    <option value="LPGVan">LPG Van</option>
+                    <option value="CNGVan">CNG Van</option>
+                    <option value="SmallPetrolCar">Small Petrol Car</option>
+                    <option value="MediumPetrolCar">Medium Petrol Car</option>
+                    <option value="LargePetrolCar">Large Petrol Car</option>
+                    <option value="SmallMotorBike">Small Motor Bike</option>
+                    <option value="MediumMotorBike">Medium Motor Bike</option>
+                    <option value="LargeMotorBike">Large Motor Bike</option>
+                </select>
+                <br>
+                Distance (mi):
+                <input id="cdist" type="number" placeholder="0" class="border-2 rounded-lg p-2 m-2">
+                <div class="mt-2 cursor-pointer"><button" id="submit" class="ripple-bg-green-200 cursor-pointer border-0 border-green-400 rounded-lg p-2 bg-green-400 text-white font-bold hover:bg-white hover:text-green-400 m-2 hover:border-2" onclick="car()">Submit</button></div>
+            </form> 
+        </div>
+
+        <div id="ptrans" class="border-2 rounded-lg m-5 py-8 p-5 sm:w-1/4 w-11/12 border-4 border-green-400 rounded-2xl animate-fadeL bg-white/30 hover:bg-white/50">
+            <h1 class="text-xl font-bold">Public transit</h1>
+            <form action="">
+                Choose a vehicle: 
+                <select name="transit" id="transit" class="m-2">
+                    <option value="Taxi">Taxi</option>
+                    <option value="ClassicBus">Classic Bus</option>
+                    <option value="EcoBus">Eco Bus</option>
+                    <option value="Coach">Coach</option>
+                    <option value="NationalTrain">National Train</option>
+                    <option value="LightRail">Light Rail</option>
+                    <option value="Subway">Subway</option>
+                    <option value="FerryOnFoot">Ferry On Foot</option>
+                    <option value="FerryInCar">Ferry In Car</option>
+                </select>
+                <br>
+                Distance (mi):
+                <input id="tdist" type="number" placeholder="0" class="border-2 rounded-lg p-2 m-2">
+                <div class="mt-2 cursor-pointer"><button" id="submit" class="ripple-bg-green-200 cursor-pointer border-0 border-green-400 rounded-lg p-2 bg-green-400 text-white font-bold hover:bg-white hover:text-green-400 m-2 hover:border-2" onclick="transit()">Submit</button></div>
+            </form> 
+        </div>
+
+        <div id="plane" class="border-2 rounded-lg m-5 py-8 p-5 sm:w-1/4 w-11/12 border-4 border-green-400 rounded-2xl animate-slideR bg-white/30 hover:bg-white/50">
+            <h1 class="text-xl font-bold">Plane flight</h1>
+            <form action="">
+                Choose a flight: 
+                <select name="flight" id="flight" class="m-2">
+                    <option value="DomesticFlight">Domestic Flight</option>
+                    <option value="ShortEconomyClassFlight">Short Economy Class Flight</option>
+                    <option value="ShortBusinessClassFlight">Short Business Class Flight</option>
+                    <option value="LongEconomyClassFlight">Long Economy Class Flight</option>
+                    <option value="LongPremiumClassFlight">Long Premium Class Flight</option>
+                    <option value="LongBusinessClassFlight">Long Business Class Flight</option>
+                    <option value="LongFirstClassFlight">Long First Class Flight</option>
+                </select>
+                <br>
+                Distance (mi):
+                <input id="fdist" type="number" placeholder="0" class="border-2 rounded-lg p-2 m-2">
+                <div class="mt-2 cursor-pointer"><button" id="submit" class="ripple-bg-green-200 cursor-pointer border-0 border-green-400 rounded-lg p-2 bg-green-400 text-white font-bold hover:bg-white hover:text-green-400 m-2 hover:border-2" onclick="flight()">Submit</button></div>
+            </form> 
+        </div>
+
+        <div id="energy" class="border-2 rounded-lg m-5 py-8 p-5 sm:w-1/4 w-11/12 border-4 border-green-400 rounded-2xl animate-slideL bg-white/30 hover:bg-white/50">
+            <h1 class="text-xl font-bold">Clean Energy (Monthly)</h1>
+            <form action="">
+                Choose an energy type: 
+                <select name="etype" id="etype" class="m-2">
+                    <option value="Solar">Solar</option>
+                    <option value="Wind">Wind</option>
+                    <option value="HydroElectric">Hydro Electric</option>
+                    <option value="Biomass">Biomass</option>
+                    <option value="Geothermal">Geothermal</option>
+                    <option value="Tidal">Tidal</option>
+                    <option value="OtherCleanEnergy">Other Clean Energy</option>
+                </select>
+                <br>
+                Consumption (KWH):
+                <input id="edist" type="number" placeholder="0" class="border-2 rounded-lg p-2 m-2">
+                <div class="mt-2"><button" id="submit" class="ripple-bg-green-200 cursor-pointer border-0 border-green-400 rounded-lg p-2 bg-green-400 text-white font-bold hover:bg-white hover:text-green-400 m-2 hover:border-2" onclick="energy()">Submit</button></div>
+            </form> 
+            
+        </div>
+
+        <div id="food" class="border-2 rounded-lg m-5 py-8 p-5 sm:w-1/4 w-11/12 border-4 border-green-400 rounded-2xl animate-slideR bg-white/30 hover:bg-white/50">
+            <h1 class="text-xl font-bold">Food</h1>
+            <form action="">
+                Choose a food type: 
+                <select name="ftype" id="ftype" class="m-2">
+                    <option value="d">Drinks</option>
+                    <option value="ss">Snacks/Sugar</option>
+                    <option value="os">Oils/Spreads</option>
+                    <option value="f">Fruit</option>
+                    <option value="v">Vegetables</option>
+                    <option value="cb">Cereals/Breads</option>
+                    <option value="d">Dairy</option>
+                    <option value="cfp">Chicken/Fish/Pork</option>
+                    <option value="d">Dairy</option>
+                    <option value="bl">Beef/Lamb</option>
+                </select>
+                <br>
+                Calories:
+                <input id="cal" type="number" placeholder="0" class="border-2 rounded-lg p-2 m-2">
+                <div class="mt-2"><button" id="submit" class="ripple-bg-green-200 cursor-pointer border-0 border-green-400 rounded-lg p-2 bg-green-400 text-white font-bold hover:bg-white hover:text-green-400 m-2 hover:border-2" onclick="food()">Submit</button></div>
+            </form> 
+            
+        </div>
+    </div>
+
+    <div class="flex justify-center">
+        <div class="m-2"><button" id="submit" class="ripple-bg-green-200 cursor-pointer border-0 border-green-400 rounded-lg p-2 bg-green-400 text-white font-bold hover:bg-white hover:text-green-400 m-2 px-3 hover:border-2" onclick="reset()">Reset</button></div>
+    </div>
+    
+    <div id="result" class="text-center text-xl m-5">
+        <h1>Your Carbon Footprint (CO2e in Kg)<button onclick="show_element()" type="button" class=""><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" /></svg></button>: <span id="cf" class="font-bold cursor-pointer">0</span></h1>
+    </div>
+
+    <h1 id="info" class="hidden text-center"><i>CO2e is the amount of CO2 which would have the equivalent global warming impact.</i></h1>
+        <script>
+            var hidden = true;
+            function show_element() {
+                if(hidden) {
+                    document.getElementById('info').classList.remove('hidden')
+                    hidden = false;
+                } else {
+                    document.getElementById('info').classList.add('hidden')
+                    hidden = true;
+                }
+            }
+        </script>
+    
+
+    </div>
+    
+    
+</body>
+<script src="script.js"></script>
+</html>

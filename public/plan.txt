@@ -1,0 +1,22 @@
+To do:
+Demo Video
+New APIs/data
+
+In progress:
+CO2e scale/severity indicator
+Convert to number of trees or other easy number
+Add new calculations from new API
+
+
+Done:
+Extra fancy CSS
+Multiple calculations at once (ex: 2 car trips)
+CO2e question mark explanation
+Set up API
+Set up Car, transit, flight, and energy calculations
+Basic CSS
+Add spaces to select
+Logo/Icon
+Better CSS styling
+KM to Miles converter
+Error checking
