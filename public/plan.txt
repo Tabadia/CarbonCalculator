@@ -1,10 +1,11 @@
 To do:
 Demo Video
 Domain
-Carbon Offset
-Maybe website carbon footprint?
 
 In progress:
+Carbon Offset
+Formatting Issues
+CSS touch ups
 
 Done:
 Extra fancy CSS

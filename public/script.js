@@ -27,7 +27,7 @@ function car(){
 
     xhr.open("GET", "https://carbonfootprint1.p.rapidapi.com/CarbonFootprintFromCarTravel?vehicle=" + car + "&distance=" + distance);
     xhr.setRequestHeader("x-rapidapi-host", "carbonfootprint1.p.rapidapi.com");
-    xhr.setRequestHeader("x-rapidapi-key", "c82c7bccc7msh4d7b58143210cc6p11a724jsn4efa085bcb43");
+    xhr.setRequestHeader("x-rapidapi-key", "3b5730e8b1msh3791b6f63d4cefep18cc50jsn4240d159ea87");
 
     xhr.send(data);
 }
@@ -61,7 +61,7 @@ function transit(){
 
     xhr.open("GET", "https://carbonfootprint1.p.rapidapi.com/CarbonFootprintFromPublicTransit?type=" + transit + "&distance=" + distance);
     xhr.setRequestHeader("x-rapidapi-host", "carbonfootprint1.p.rapidapi.com");
-    xhr.setRequestHeader("x-rapidapi-key", "c82c7bccc7msh4d7b58143210cc6p11a724jsn4efa085bcb43");
+    xhr.setRequestHeader("x-rapidapi-key", "3b5730e8b1msh3791b6f63d4cefep18cc50jsn4240d159ea87");
 
     xhr.send(data);
 }
@@ -95,7 +95,7 @@ function flight(){
 
     xhr.open("GET", "https://carbonfootprint1.p.rapidapi.com/CarbonFootprintFromFlight?type=" + flight + "&distance=" + distance);
     xhr.setRequestHeader("x-rapidapi-host", "carbonfootprint1.p.rapidapi.com");
-    xhr.setRequestHeader("x-rapidapi-key", "c82c7bccc7msh4d7b58143210cc6p11a724jsn4efa085bcb43");
+    xhr.setRequestHeader("x-rapidapi-key", "3b5730e8b1msh3791b6f63d4cefep18cc50jsn4240d159ea87");
 
     xhr.send(data);
 }
@@ -129,7 +129,7 @@ function energy(){
 
     xhr.open("GET", "https://carbonfootprint1.p.rapidapi.com/CleanHydroToCarbonFootprint?consumption=" + distance + "&energy=" + energy);
     xhr.setRequestHeader("x-rapidapi-host", "carbonfootprint1.p.rapidapi.com");
-    xhr.setRequestHeader("x-rapidapi-key", "c82c7bccc7msh4d7b58143210cc6p11a724jsn4efa085bcb43");
+    xhr.setRequestHeader("x-rapidapi-key", "3b5730e8b1msh3791b6f63d4cefep18cc50jsn4240d159ea87");
 
     xhr.send(data);
 }
@@ -137,7 +137,7 @@ function energy(){
 function food(){
     let food = document.getElementById('ftype').value
     let cal = document.getElementById('cal').value
-    cal = parseInt(cal)
+    cal = parseFloat(cal)
     console.log(food+cal)
     if (food == 'd'){
         food = 2.2;
@@ -202,7 +202,7 @@ function fuel(){
 
     xhr.open("GET", "https://carbonfootprint1.p.rapidapi.com/FuelToCO2e?litres=" + distance + "&type=" + fuel);
     xhr.setRequestHeader("x-rapidapi-host", "carbonfootprint1.p.rapidapi.com");
-    xhr.setRequestHeader("x-rapidapi-key", "c82c7bccc7msh4d7b58143210cc6p11a724jsn4efa085bcb43");
+    xhr.setRequestHeader("x-rapidapi-key", "3b5730e8b1msh3791b6f63d4cefep18cc50jsn4240d159ea87");
 
     xhr.send(data);
 }
@@ -210,6 +210,10 @@ function fuel(){
 function reset(){
     document.getElementById('cf').innerHTML = 0;
     document.getElementById('treeKill').innerHTML = 0;
+}
+
+function reset1(){
+    document.getElementById('offset').innerHTML = 0;
 }
 
 function treeCalc() {
@@ -261,13 +265,32 @@ function severity(id, maxNum, minNum, responseText) {
 }
 
 function vegImpact() {
-    vegYear = document.getElementById('vegImpact');
-    cPrint = document.getElementById('result');
-    yearsNeeded = document.getElementById('yearsNeeded');
+    let vegYear = document.getElementById('vegYears').value;
+    document.getElementById('offset').innerHTML = parseFloat(document.getElementById('offset').innerHTML) + parseFloat(vegYear) * 907.185;
+}
 
-    if (cPrint == null) {
-        yearsNeeded = "Error, no valid value inputted"
-    } else if (true) {
+function electricImpact() {
+    let electricYear = document.getElementById('electricYears').value;
+    document.getElementById('offset').innerHTML = parseFloat(document.getElementById('offset').innerHTML) + parseFloat(electricYear) * 2773.05;
+}
 
-    }
+function led() {
+    let led = document.getElementById('led').value;
+    let ledYears = document.getElementById('ledYears').value;
+    document.getElementById('offset').innerHTML = parseFloat(document.getElementById('offset').innerHTML) + (parseFloat(led) * 1836.596) * parseFloat(ledYears);
+}
+
+function heating() {
+    let heatingYears = document.getElementById('heatingYears').value;
+    document.getElementById('offset').innerHTML = parseFloat(document.getElementById('offset').innerHTML) + parseFloat(heatingYears) * 4672.00150001;
+}
+
+function thrift(){
+    let thriftYears = document.getElementById('thriftYears').value;
+    document.getElementById('offset').innerHTML = parseFloat(document.getElementById('offset').innerHTML) + parseFloat(thiftYears) * 748;
+}
+
+function renew(){
+    let renew = document.getElementById('renew').value;
+    document.getElementById('offset').innerHTML = parseFloat(document.getElementById('offset').innerHTML) + parseFloat(renew) * 8979.17;
 }

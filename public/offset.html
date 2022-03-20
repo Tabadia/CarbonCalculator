@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-[url('liquid-cheese1.svg')] bg-repeat-y bg-cover bg-center">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carbon Offset</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/29ce419f3c.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+</head>
+<body class="animate-fadeS h-max 2xl:h-screen">
+    <nav style="z-index:100" class="sticky top-0 bg-white/50 text-2xl p-2 text-center">
+        <ul class="flex justify-between">
+            <li class="mr-3">
+                <a href="./">
+                    <img src="logo.png" alt="Carbon Callculator" class="mx-auto w-64 my-0">
+                </a>
+            </li>
+            <li class="mr-3">
+                <a href="./offset.html">
+                    <img src="logo2.png" alt="Carbon Callculator" class="mx-auto w-64 my-0">
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <h1 class="text-center text-2xl mt-2">Carbon Offset Calculators:</h1>
+    <h1 class="text-xl mt-2 text-center">Average CO2e (Kg) offset: <span id="offset" class="font-bold"> 0</span></h1>
+    <div class="flex sm:flex-row flex-col flex-wrap justify-center">
+
+        <div id="led" class="drop-shadow-2xl border-2 rounded-lg m-5 py-8 p-5 sm:w-1/4 w-11/12 border-2 border-green-400 rounded-2xl animate-fadeL bg-white/30 hover:bg-white/50">
+            <h1 class="text-xl mt-2">How many incandescent light bulbs will you switch for LED's?</h1>
+            <input id="led" type="number" placeholder="0" class="border-2 rounded-lg p-2 m-2">
+            <h1 class="text-xl mt-2">How many years will you use them?</h1>
+            <input id="ledYears" type="number" placeholder="0" class="border-2 rounded-lg p-2 m-2">
+            <div>
+                <button id="submit" class="ripple-bg-green-200 cursor-pointer border-2 border-green-400 rounded-lg p-2 bg-green-400 text-white font-bold hover:bg-white hover:text-green-400 m-2 hover:border-2 px-3" onclick="led()">Add</button>
+                <button id="submit" class="ripple-bg-green-200 cursor-pointer border-2 border-green-400 rounded-lg p-2 bg-green-400 text-white font-bold hover:bg-white hover:text-green-400 m-2 px-3 hover:border-2" onclick="reset1()">Reset</button>
+            </div>
+        </div>
+
+        <div id="vegetarian" class="drop-shadow-2xl border-2 rounded-lg m-5 py-8 p-5 sm:w-1/4 w-11/12 border-2 border-green-400 rounded-2xl animate-fadeL bg-white/30 hover:bg-white/50">
+            <h1 class="text-xl mt-2">How many years will you be vegetarian?</h1>
+            <input id="vegYears" type="number" placeholder="0" class="border-2 rounded-lg p-2 m-2">
+            <div>
+                <button id="submit" class="ripple-bg-green-200 cursor-pointer border-2 border-green-400 rounded-lg p-2 bg-green-400 text-white font-bold hover:bg-white hover:text-green-400 m-2 hover:border-2 px-3" onclick="vegImpact()">Add</button>
+                <button id="submit" class="ripple-bg-green-200 cursor-pointer border-2 border-green-400 rounded-lg p-2 bg-green-400 text-white font-bold hover:bg-white hover:text-green-400 m-2 px-3 hover:border-2" onclick="reset1()">Reset</button>
+            </div>
+        </div>
+
+        <div id="electric" class="drop-shadow-2xl border-2 rounded-lg m-5 py-8 p-5 sm:w-1/4 w-11/12 border-2 border-green-400 rounded-2xl animate-fadeL bg-white/30 hover:bg-white/50">
+            <h1 class="text-xl mt-2">How many years will you drive an electric car?</h1>
+            <input id="electricYears" type="number" placeholder="0" class="border-2 rounded-lg p-2 m-2">
+            <div>
+                <button id="submit" class="ripple-bg-green-200 cursor-pointer border-2 border-green-400 rounded-lg p-2 bg-green-400 text-white font-bold hover:bg-white hover:text-green-400 m-2 hover:border-2 px-3" onclick="electricImpact()">Add</button>
+                <button id="submit" class="ripple-bg-green-200 cursor-pointer border-2 border-green-400 rounded-lg p-2 bg-green-400 text-white font-bold hover:bg-white hover:text-green-400 m-2 px-3 hover:border-2" onclick="reset1()">Reset</button>
+            </div>
+        </div>
+
+        <div id="heating" class="drop-shadow-2xl border-2 rounded-lg m-5 py-8 p-5 sm:w-1/4 w-11/12 border-2 border-green-400 rounded-2xl animate-fadeL bg-white/30 hover:bg-white/50">
+            <h1 class="text-xl mt-2">How many years will you be using electric heating?</h1>
+            <input id="heatingYears" type="number" placeholder="0" class="border-2 rounded-lg p-2 m-2">
+            <div>
+                <button id="submit" class="ripple-bg-green-200 cursor-pointer border-2 border-green-400 rounded-lg p-2 bg-green-400 text-white font-bold hover:bg-white hover:text-green-400 m-2 hover:border-2 px-3" onclick="heating()">Add</button>
+                <button id="submit" class="ripple-bg-green-200 cursor-pointer border-2 border-green-400 rounded-lg p-2 bg-green-400 text-white font-bold hover:bg-white hover:text-green-400 m-2 px-3 hover:border-2" onclick="reset1()">Reset</button>
+            </div>
+        </div>
+
+        <div id="vegetarian" class="drop-shadow-2xl border-2 rounded-lg m-5 py-8 p-5 sm:w-1/4 w-11/12 border-2 border-green-400 rounded-2xl animate-fadeL bg-white/30 hover:bg-white/50">
+            <h1 class="text-xl mt-2">How many years will you be using renewable energy?</h1>
+            <input id="renew" type="number" placeholder="0" class="border-2 rounded-lg p-2 m-2">
+            <div>
+                <button id="submit" class="ripple-bg-green-200 cursor-pointer border-2 border-green-400 rounded-lg p-2 bg-green-400 text-white font-bold hover:bg-white hover:text-green-400 m-2 hover:border-2 px-3" onclick="renew()">Add</button>
+                <button id="submit" class="ripple-bg-green-200 cursor-pointer border-2 border-green-400 rounded-lg p-2 bg-green-400 text-white font-bold hover:bg-white hover:text-green-400 m-2 px-3 hover:border-2" onclick="reset1()">Reset</button>
+            </div>
+        </div>
+
+        <div id="thrift" class="drop-shadow-2xl border-2 rounded-lg m-5 py-8 p-5 sm:w-1/4 w-11/12 border-2 border-green-400 rounded-2xl animate-fadeL bg-white/30 hover:bg-white/50">
+            <h1 class="text-xl mt-2">How many years will you thrift clothing?</h1>
+            <input id="thriftYears" type="number" placeholder="0" class="border-2 rounded-lg p-2 m-2">
+            <div>
+                <button id="submit" class="ripple-bg-green-200 cursor-pointer border-2 border-green-400 rounded-lg p-2 bg-green-400 text-white font-bold hover:bg-white hover:text-green-400 m-2 hover:border-2 px-3" onclick="thrift()">Add</button>
+                <button id="submit" class="ripple-bg-green-200 cursor-pointer border-2 border-green-400 rounded-lg p-2 bg-green-400 text-white font-bold hover:bg-white hover:text-green-400 m-2 px-3 hover:border-2" onclick="reset1()">Reset</button>
+            </div>
+        </div>
+
+    </div>
+    
+    <h1 class="text-center text-2xl mt-2">Carbon Offset Donations:</h1>
+    <div class="flex sm:flex-row flex-col flex-wrap justify-center text-xl">
+        <div class="drop-shadow-2xl border-2 rounded-lg m-5 py-8 p-5 sm:w-1/4 w-11/12 border-2 border-green-400 rounded-2xl animate-fadeL bg-white/30 hover:bg-white/50">
+            <h1 class="text-xl mt-2 text-center font-bold">Grassroots leaders create equitable and climate resilient solutions — for 100% of people.</h1>
+                <p class="text-center my-7">The Solutions Project envisions a world that is driven by purpose. One that combines and amplifies radical ideas and hard work from those whose voices typically might go unheard.</p>
+            <div class="mt-2"><a href = "https://thesolutionsproject.org/donate/" target="_blank"></a>
+                <button type="button" class="ripple-bg-green-200 cursor-pointer border-2 border-green-400 rounded-lg p-2 bg-green-400 text-white font-bold hover:bg-white hover:text-green-400 hover:border-2 px-3">Learn more</button></div>
+        </div>
+        
+        <div class="drop-shadow-2xl border-2 rounded-lg m-5 py-8 p-5 sm:w-1/4 w-11/12 border-2 border-green-400 rounded-2xl animate-fadeL bg-white/30 hover:bg-white/50">
+            <h1 class="text-xl mt-2 text-center font-bold">Take Action to Save the Rainforests Now.</h1>
+                <p class="text-center my-7">The Coalition for Rainforest Nations seek responsible stewardship of the World's last great rainforests through innovative strategies which integrate social, economic and scientific rationales to achieve environmental and social sustainability.</p>
+            <div class="mt-2"><a href = "https://www.rainforestcoalition.org/donate" target="_blank"></a>
+                <button type="button" class="ripple-bg-green-200 cursor-pointer border-2 border-green-400 rounded-lg p-2 bg-green-400 text-white font-bold hover:bg-white hover:text-green-400 hover:border-2 px-3">Learn More</button>
+            </div>
+        </div>      
+        
+        <div class="drop-shadow-2xl border-2 rounded-lg m-5 py-8 p-5 sm:w-1/4 w-11/12 border-2 border-green-400 rounded-2xl animate-fadeL bg-white/30 hover:bg-white/50 flex flex-col justify-center">  
+            <h1 class="text-xl mt-2 text-center font-bold">Reduce What You Can, Offset What You Can't.</h1>
+                <p class="text-center mt-7 mb-30">Carbonfund.org is leading the fight against climate change, making it easy and affordable for any individual, business or organization to reduce & offset their climate impact and hasten the transition to a clean energy future.</p>
+            <div class="mt-14"><a href = "https://carbonfund.org/carbon-offsets/" target="_blank">
+                <button type="button" class="ripple-bg-green-200 cursor-pointer border-2 border-green-400 rounded-lg p-2 bg-green-400 text-white font-bold hover:bg-white hover:text-green-400 hover:border-2 px-3">Learn More</button>
+            </div>      
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
