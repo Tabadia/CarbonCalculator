@@ -1,13 +1,16 @@
 To do:
+
+
+In progress:
 Demo Video
 Domain
 
-In progress:
-Carbon Offset
-Formatting Issues
-CSS touch ups
 
 Done:
+Navbar stay on top at mobile
+Formatting Issues
+Carbon Offset
+CSS touch ups
 Extra fancy CSS
 Multiple calculations at once (ex: 2 car trips)
 CO2e question mark explanation

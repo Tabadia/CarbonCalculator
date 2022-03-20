@@ -27,7 +27,7 @@ function car(){
 
     xhr.open("GET", "https://carbonfootprint1.p.rapidapi.com/CarbonFootprintFromCarTravel?vehicle=" + car + "&distance=" + distance);
     xhr.setRequestHeader("x-rapidapi-host", "carbonfootprint1.p.rapidapi.com");
-    xhr.setRequestHeader("x-rapidapi-key", "3b5730e8b1msh3791b6f63d4cefep18cc50jsn4240d159ea87");
+    xhr.setRequestHeader("x-rapidapi-key", "c82c7bccc7msh4d7b58143210cc6p11a724jsn4efa085bcb43");
 
     xhr.send(data);
 }
@@ -61,7 +61,7 @@ function transit(){
 
     xhr.open("GET", "https://carbonfootprint1.p.rapidapi.com/CarbonFootprintFromPublicTransit?type=" + transit + "&distance=" + distance);
     xhr.setRequestHeader("x-rapidapi-host", "carbonfootprint1.p.rapidapi.com");
-    xhr.setRequestHeader("x-rapidapi-key", "3b5730e8b1msh3791b6f63d4cefep18cc50jsn4240d159ea87");
+    xhr.setRequestHeader("x-rapidapi-key", "c82c7bccc7msh4d7b58143210cc6p11a724jsn4efa085bcb43");
 
     xhr.send(data);
 }
@@ -95,7 +95,7 @@ function flight(){
 
     xhr.open("GET", "https://carbonfootprint1.p.rapidapi.com/CarbonFootprintFromFlight?type=" + flight + "&distance=" + distance);
     xhr.setRequestHeader("x-rapidapi-host", "carbonfootprint1.p.rapidapi.com");
-    xhr.setRequestHeader("x-rapidapi-key", "3b5730e8b1msh3791b6f63d4cefep18cc50jsn4240d159ea87");
+    xhr.setRequestHeader("x-rapidapi-key", "c82c7bccc7msh4d7b58143210cc6p11a724jsn4efa085bcb43");
 
     xhr.send(data);
 }
@@ -129,7 +129,7 @@ function energy(){
 
     xhr.open("GET", "https://carbonfootprint1.p.rapidapi.com/CleanHydroToCarbonFootprint?consumption=" + distance + "&energy=" + energy);
     xhr.setRequestHeader("x-rapidapi-host", "carbonfootprint1.p.rapidapi.com");
-    xhr.setRequestHeader("x-rapidapi-key", "3b5730e8b1msh3791b6f63d4cefep18cc50jsn4240d159ea87");
+    xhr.setRequestHeader("x-rapidapi-key", "c82c7bccc7msh4d7b58143210cc6p11a724jsn4efa085bcb43");
 
     xhr.send(data);
 }
@@ -202,7 +202,7 @@ function fuel(){
 
     xhr.open("GET", "https://carbonfootprint1.p.rapidapi.com/FuelToCO2e?litres=" + distance + "&type=" + fuel);
     xhr.setRequestHeader("x-rapidapi-host", "carbonfootprint1.p.rapidapi.com");
-    xhr.setRequestHeader("x-rapidapi-key", "3b5730e8b1msh3791b6f63d4cefep18cc50jsn4240d159ea87");
+    xhr.setRequestHeader("x-rapidapi-key", "c82c7bccc7msh4d7b58143210cc6p11a724jsn4efa085bcb43");
 
     xhr.send(data);
 }
@@ -266,31 +266,59 @@ function severity(id, maxNum, minNum, responseText) {
 
 function vegImpact() {
     let vegYear = document.getElementById('vegYears').value;
-    document.getElementById('offset').innerHTML = parseFloat(document.getElementById('offset').innerHTML) + parseFloat(vegYear) * 907.185;
+    if (vegYear == 0 || vegYear == null) {
+        document.getElementById('offset').innerHTML = 0;
+    } else {
+        document.getElementById('offset').innerHTML = (parseFloat(document.getElementById('offset').innerHTML) + parseFloat(vegYear) * 907.185).toFixed(3);
+    }
 }
 
 function electricImpact() {
     let electricYear = document.getElementById('electricYears').value;
-    document.getElementById('offset').innerHTML = parseFloat(document.getElementById('offset').innerHTML) + parseFloat(electricYear) * 2773.05;
+    if (electricYear == 0 || electricYear == null) {
+        document.getElementById('offset').innerHTML = 0;
+    } else {
+        document.getElementById('offset').innerHTML = (parseFloat(document.getElementById('offset').innerHTML) + parseFloat(electricYear) * 2773.05).toFixed(3);
+    }  
 }
 
 function led() {
     let led = document.getElementById('led').value;
     let ledYears = document.getElementById('ledYears').value;
-    document.getElementById('offset').innerHTML = parseFloat(document.getElementById('offset').innerHTML) + (parseFloat(led) * 1836.596) * parseFloat(ledYears);
+    console.log(led)
+    console.log(ledYears)
+    
+    if (led == 0 ||led == null || ledYears == 0 || ledYears == null) {
+        document.getElementById('offset').innerHTML = 0;
+    } else {
+        document.getElementById('offset').innerHTML = (parseFloat(document.getElementById('offset').innerHTML) + (parseFloat(led) * 1836.596) * parseFloat(ledYears)).toFixed(3);
+    }
 }
 
 function heating() {
     let heatingYears = document.getElementById('heatingYears').value;
-    document.getElementById('offset').innerHTML = parseFloat(document.getElementById('offset').innerHTML) + parseFloat(heatingYears) * 4672.00150001;
+    if (heatingYears == 0 || heatingYears == null) {
+        document.getElementById('offset').innerHTML = 0;
+    } else {
+        document.getElementById('offset').innerHTML = (parseFloat(document.getElementById('offset').innerHTML) + parseFloat(heatingYears) * 4672.00150001).toFixed(3);
+    }
+    
 }
 
 function thrift(){
     let thriftYears = document.getElementById('thriftYears').value;
-    document.getElementById('offset').innerHTML = parseFloat(document.getElementById('offset').innerHTML) + parseFloat(thiftYears) * 748;
+    if (thriftYears == 0 || thriftYears == null) {
+        document.getElementById('offset').innerHTML = 0;
+    } else {
+        document.getElementById('offset').innerHTML = (parseFloat(document.getElementById('offset').innerHTML) + parseFloat(thiftYears) * 748).toFixed(3);
+    }
 }
 
 function renew(){
     let renew = document.getElementById('renew').value;
-    document.getElementById('offset').innerHTML = parseFloat(document.getElementById('offset').innerHTML) + parseFloat(renew) * 8979.17;
+    if (renew == 0 || renew == null) {
+        document.getElementById('offset').innerHTML = 0;
+    } else {
+        document.getElementById('offset').innerHTML = (parseFloat(document.getElementById('offset').innerHTML) + parseFloat(renew) * 8979.17).toFixed(3);
+    }
 }
