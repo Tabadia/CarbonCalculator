@@ -27,7 +27,7 @@ function car(){
 
     xhr.open("GET", "https://carbonfootprint1.p.rapidapi.com/CarbonFootprintFromCarTravel?vehicle=" + car + "&distance=" + distance);
     xhr.setRequestHeader("x-rapidapi-host", "carbonfootprint1.p.rapidapi.com");
-    xhr.setRequestHeader("x-rapidapi-key", "3b5730e8b1msh3791b6f63d4cefep18cc50jsn4240d159ea87");
+    xhr.setRequestHeader("x-rapidapi-key", "c82c7bccc7msh4d7b58143210cc6p11a724jsn4efa085bcb43");
 
     xhr.send(data);
 }
@@ -61,7 +61,7 @@ function transit(){
 
     xhr.open("GET", "https://carbonfootprint1.p.rapidapi.com/CarbonFootprintFromPublicTransit?type=" + transit + "&distance=" + distance);
     xhr.setRequestHeader("x-rapidapi-host", "carbonfootprint1.p.rapidapi.com");
-    xhr.setRequestHeader("x-rapidapi-key", "3b5730e8b1msh3791b6f63d4cefep18cc50jsn4240d159ea87");
+    xhr.setRequestHeader("x-rapidapi-key", "c82c7bccc7msh4d7b58143210cc6p11a724jsn4efa085bcb43");
 
     xhr.send(data);
 }
@@ -95,7 +95,7 @@ function flight(){
 
     xhr.open("GET", "https://carbonfootprint1.p.rapidapi.com/CarbonFootprintFromFlight?type=" + flight + "&distance=" + distance);
     xhr.setRequestHeader("x-rapidapi-host", "carbonfootprint1.p.rapidapi.com");
-    xhr.setRequestHeader("x-rapidapi-key", "3b5730e8b1msh3791b6f63d4cefep18cc50jsn4240d159ea87");
+    xhr.setRequestHeader("x-rapidapi-key", "c82c7bccc7msh4d7b58143210cc6p11a724jsn4efa085bcb43");
 
     xhr.send(data);
 }
@@ -129,7 +129,7 @@ function energy(){
 
     xhr.open("GET", "https://carbonfootprint1.p.rapidapi.com/CleanHydroToCarbonFootprint?consumption=" + distance + "&energy=" + energy);
     xhr.setRequestHeader("x-rapidapi-host", "carbonfootprint1.p.rapidapi.com");
-    xhr.setRequestHeader("x-rapidapi-key", "3b5730e8b1msh3791b6f63d4cefep18cc50jsn4240d159ea87");
+    xhr.setRequestHeader("x-rapidapi-key", "c82c7bccc7msh4d7b58143210cc6p11a724jsn4efa085bcb43");
 
     xhr.send(data);
 }
@@ -202,7 +202,7 @@ function fuel(){
 
     xhr.open("GET", "https://carbonfootprint1.p.rapidapi.com/FuelToCO2e?litres=" + distance + "&type=" + fuel);
     xhr.setRequestHeader("x-rapidapi-host", "carbonfootprint1.p.rapidapi.com");
-    xhr.setRequestHeader("x-rapidapi-key", "3b5730e8b1msh3791b6f63d4cefep18cc50jsn4240d159ea87");
+    xhr.setRequestHeader("x-rapidapi-key", "c82c7bccc7msh4d7b58143210cc6p11a724jsn4efa085bcb43");
 
     xhr.send(data);
 }
@@ -258,4 +258,16 @@ function severity(id, maxNum, minNum, responseText) {
 
     console.log(severity);
     document.getElementById('severity').innerHTML = severity;
+}
+
+function vegImpact() {
+    vegYear = document.getElementById('vegImpact');
+    cPrint = document.getElementById('result');
+    yearsNeeded = document.getElementById('yearsNeeded');
+
+    if (cPrint == null) {
+        yearsNeeded = "Error, no valid value inputted"
+    } else if (true) {
+
+    }
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="bg-[url('liquid-cheese1.svg')] bg-no-repeat bg-cover bg-center">
+<html lang="en" class="bg-[url('liquid-cheese1.svg')] bg-repeat-y bg-cover bg-center">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,9 +14,37 @@
         <div><img src="logo.png" alt="Carbon Callculator" class="mx-auto w-64 my-0"></div>
     </header>
 
+
+    <h1 class="text-2xl text-center">Your carbon footprint in:</h1>
+    <div class="flex sm:flex-row flex-col flex-wrap justify-center text-xl">
+        <div id="result" class="drop-shadow-2xl border-2 rounded-lg m-5 py-8 p-5 sm:w-1/4 w-11/12 border-2 border-green-400 rounded-2xl animate-slideL bg-white/30 hover:bg-white/50">
+            <h1>Comparison to other options: <span id="severity" class="font-bold">Neutral</span></h1>
+        </div>
+        <div id="result" class="drop-shadow-2xl border-2 rounded-lg m-5 py-8 p-5 sm:w-1/4 w-11/12 border-2 border-green-400 rounded-2xl animate-fadeL bg-white/30 hover:bg-white/50">
+            <h1>CO2e in Kg<button onclick="show_element()" type="button" class=""><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" /></svg></button>: <span id="cf" class="font-bold cursor-pointer">0</span></h1>
+        <h1 id="info" class="hidden text-center"><i>CO2e is the amount of CO2 which would have the equivalent global warming impact.</i></h1>
+        <script>
+            var hidden = true;
+            function show_element() {
+                if(hidden) {
+                    document.getElementById('info').classList.remove('hidden')
+                    hidden = false;
+                } else {
+                    document.getElementById('info').classList.add('hidden')
+                    hidden = true;
+                }
+            }
+        </script>
+        </div>
+        <div id="result" class="drop-shadow-2xl border-2 rounded-lg m-5 py-8 p-5 sm:w-1/4 w-11/12 border-2 border-green-400 rounded-2xl animate-slideR bg-white/30 hover:bg-white/50">
+            <h1>Trees killed: <span id="treeKill" class="font-bold">0</span></h1>
+        </div>
+    </div>
+    
+    <h1 class="text-2xl text-center">Calculate:</h1>
     <div class="flex sm:flex-row flex-col flex-wrap justify-center">
-        
-        <div id="car" class="border-2 rounded-lg m-5 py-8 p-5 sm:w-1/4 w-11/12 border-4 border-green-400 rounded-2xl animate-slideL bg-white/30 hover:bg-white/50">
+
+        <div id="car" class="drop-shadow-2xl border-2 rounded-lg m-5 py-8 p-5 sm:w-1/4 w-11/12 border-2 border-green-400 rounded-2xl animate-slideL bg-white/30 hover:bg-white/50">
             <h1 class="text-xl font-bold">Car</h1>
                 Vehicle type: 
                 <select name="cars" id="cars" class="m-2">
@@ -46,7 +74,7 @@
                 <div class="mt-2 cursor-pointer"><button" id="submit" class="ripple-bg-green-200 cursor-pointer border-0 border-green-400 rounded-lg p-2 bg-green-400 text-white font-bold hover:bg-white hover:text-green-400 m-2 hover:border-2 px-3" onclick="car()">Add</button></div>
         </div>
 
-        <div id="ptrans" class="border-2 rounded-lg m-5 py-8 p-5 sm:w-1/4 w-11/12 border-4 border-green-400 rounded-2xl animate-fadeL bg-white/30 hover:bg-white/50">
+        <div id="ptrans" class="drop-shadow-2xl border-2 rounded-lg m-5 py-8 p-5 sm:w-1/4 w-11/12 border-2 border-green-400 rounded-2xl animate-fadeL bg-white/30 hover:bg-white/50">
             <h1 class="text-xl font-bold">Public transit</h1>
                 Vehicle type: 
                 <select name="transit" id="transit" class="m-2">
@@ -66,7 +94,7 @@
                 <div class="mt-2 cursor-pointer"><button" id="submit" class="ripple-bg-green-200 cursor-pointer border-0 border-green-400 rounded-lg p-2 bg-green-400 text-white font-bold hover:bg-white hover:text-green-400 m-2 hover:border-2 px-3" onclick="transit()">Add</button></div>
         </div>
 
-        <div id="plane" class="border-2 rounded-lg m-5 py-8 p-5 sm:w-1/4 w-11/12 border-4 border-green-400 rounded-2xl animate-slideR bg-white/30 hover:bg-white/50">
+        <div id="plane" class="drop-shadow-2xl border-2 rounded-lg m-5 py-8 p-5 sm:w-1/4 w-11/12 border-2 border-green-400 rounded-2xl animate-slideR bg-white/30 hover:bg-white/50">
             <h1 class="text-xl font-bold">Plane flight</h1>
                 Flight type: 
                 <select name="flight" id="flight" class="m-2">
@@ -84,7 +112,7 @@
                 <div class="mt-2 cursor-pointer"><button" id="submit" class="ripple-bg-green-200 cursor-pointer border-0 border-green-400 rounded-lg p-2 bg-green-400 text-white font-bold hover:bg-white hover:text-green-400 m-2 hover:border-2 px-3" onclick="flight()">Add</button></div>
         </div>
 
-        <div id="energy" class="border-2 rounded-lg m-5 py-8 p-5 sm:w-1/4 w-11/12 border-4 border-green-400 rounded-2xl animate-slideL bg-white/30 hover:bg-white/50">
+        <div id="energy" class="drop-shadow-2xl border-2 rounded-lg m-5 py-8 p-5 sm:w-1/4 w-11/12 border-2 border-green-400 rounded-2xl animate-slideL bg-white/30 hover:bg-white/50">
             <h1 class="text-xl font-bold">Clean Energy (Monthly)</h1>
                 Energy type: 
                 <select name="etype" id="etype" class="m-2">
@@ -102,7 +130,7 @@
             
         </div>
 
-        <div id="food" class="border-2 rounded-lg m-5 py-8 p-5 sm:w-1/4 w-11/12 border-4 border-green-400 rounded-2xl animate-fadeL bg-white/30 hover:bg-white/50">
+        <div id="food" class="drop-shadow-2xl border-2 rounded-lg m-5 py-8 p-5 sm:w-1/4 w-11/12 border-2 border-green-400 rounded-2xl animate-fadeL bg-white/30 hover:bg-white/50">
             <h1 class="text-xl font-bold">Food</h1>
                 Food type: 
                 <select name="ftype" id="ftype" class="m-2">
@@ -123,7 +151,7 @@
             
         </div>
 
-        <div id="fuel" class="border-2 rounded-lg m-5 py-8 p-5 sm:w-1/4 w-11/12 border-4 border-green-400 rounded-2xl animate-slideR bg-white/30 hover:bg-white/50">
+        <div id="fuel" class="drop-shadow-2xl border-2 rounded-lg m-5 py-8 p-5 sm:w-1/4 w-11/12 border-2 border-green-400 rounded-2xl animate-slideR bg-white/30 hover:bg-white/50">
             <h1 class="text-xl font-bold">Fuel</h1>
                 Fuel type: 
                 <select name="futype" id="futype" class="m-2">
@@ -139,33 +167,35 @@
     </div>
 
     <div class="flex justify-center">
-        <div class="m-2"><button" id="submit" class="ripple-bg-green-200 cursor-pointer border-0 border-green-400 rounded-lg p-2 bg-green-400 text-white font-bold hover:bg-white hover:text-green-400 m-2 px-3 hover:border-2" onclick="reset()">Reset</button></div>
+        <div class=""><button" id="submit" class="ripple-bg-green-200 cursor-pointer border-0 border-green-400 rounded-lg p-2 bg-green-400 text-white font-bold hover:bg-white hover:text-green-400 m-2 px-3 hover:border-2" onclick="reset()">Reset</button></div>
     </div>
     
-    <div id="result" class="text-center text-xl m-5">
-        <h1>Your Carbon Footprint (CO2e in Kg)<button onclick="show_element()" type="button" class=""><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" /></svg></button>: <span id="cf" class="font-bold cursor-pointer">0</span></h1>
+    <h1 class="text-center text-2xl mt-2">Carbon Offset:</h1>
+    <div class="flex sm:flex-row flex-col flex-wrap justify-center">
+
+        
+        <div id="vegetarian" class="drop-shadow-2xl border-2 rounded-lg m-5 py-8 p-5 sm:w-1/4 w-11/12 border-2 border-green-400 rounded-2xl animate-fadeL bg-white/30 hover:bg-white/50">
+            <h1 class="text-xl mt-2">How many years will you been vegetarian?</h1>
+            <input id="vegImpact" type="number" placeholder="0" class="border-2 rounded-lg p-2 m-2">
+            <div class=""><button" id="submit" class="ripple-bg-green-200 cursor-pointer border-0 border-green-400 rounded-lg p-2 bg-green-400 text-white font-bold hover:bg-white hover:text-green-400 m-2 px-3 hover:border-2" onclick="vegImpact()">Submit</button></div>
+            <h1 class="text-xl mt-2">Years being vegetarian needed to offset carbon footprint:<span id="yearsNeeded" class="font-bold">0</span> </h1>
+        </div>
+
+        <div id="" class="drop-shadow-2xl border-2 rounded-lg m-5 py-8 p-5 sm:w-1/4 w-11/12 border-2 border-green-400 rounded-2xl animate-fadeL bg-white/30 hover:bg-white/50">
+            <h1 class="text-xl mt-2">Being vegetarian reduces avg annual foodprint by 0.8 tonnes of CO2e.</h1>
+        </div>
+        
+
+        <div id="" class="drop-shadow-2xl border-2 rounded-lg m-5 py-8 p-5 sm:w-1/4 w-11/12 border-2 border-green-400 rounded-2xl animate-fadeL bg-white/30 hover:bg-white/50">
+            <h1 class="text-xl mt-2">links</h1>
+            <div class="mt-2 cursor-pointer"><a href = "https://thesolutionsproject.org/donate/" target = _blank"<button" type="button" class="ripple-bg-green-200 cursor-pointer border-0 border-green-400 rounded-lg p-2 bg-green-400 text-white font-bold hover:bg-white hover:text-green-400 m-2 hover:border-2 px-3">solutions</a></button></div>
+            <div class="mt-2 cursor-pointer"><a href = "https://www.rainforestcoalition.org/donate" target = _blank"<button" type="button" class="ripple-bg-green-200 cursor-pointer border-0 border-green-400 rounded-lg p-2 bg-green-400 text-white font-bold hover:bg-white hover:text-green-400 m-2 hover:border-2 px-3">rainf</a></button></div>
+            <div class="mt-2 cursor-pointer"><a href = "https://carbon180.org/donate" target = _blank"<button" type="button" class="ripple-bg-green-200 cursor-pointer border-0 border-green-400 rounded-lg p-2 bg-green-400 text-white font-bold hover:bg-white hover:text-green-400 m-2 hover:border-2 px-3">Carbon180</a></button></div>
+                
+            </button>
+        </div>
     </div>
 
-    <h1 id="info" class="hidden text-center"><i>CO2e is the amount of CO2 which would have the equivalent global warming impact.</i></h1>
-        <script>
-            var hidden = true;
-            function show_element() {
-                if(hidden) {
-                    document.getElementById('info').classList.remove('hidden')
-                    hidden = false;
-                } else {
-                    document.getElementById('info').classList.add('hidden')
-                    hidden = true;
-                }
-            }
-        </script>
-    
-
-    </div>
-    <div id="" class="text-center text-xl m-5">
-        <h1>Your carbon footprint in tree kills: <span id="treeKill" class="font-bold">0</span></h1>
-        <h1>Your carbon footprint compared to other options: <span id="severity" class="font-bold">Neutral</span></h1>
-    </div>
     
     
 </body>
