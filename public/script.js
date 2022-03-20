@@ -27,7 +27,7 @@ function car(){
 
     xhr.open("GET", "https://carbonfootprint1.p.rapidapi.com/CarbonFootprintFromCarTravel?vehicle=" + car + "&distance=" + distance);
     xhr.setRequestHeader("x-rapidapi-host", "carbonfootprint1.p.rapidapi.com");
-    xhr.setRequestHeader("x-rapidapi-key", "c82c7bccc7msh4d7b58143210cc6p11a724jsn4efa085bcb43");
+    xhr.setRequestHeader("x-rapidapi-key", "55f7989e95msh4c82309a84b75bdp127c00jsnb436772e985d");
 
     xhr.send(data);
 }
@@ -61,7 +61,7 @@ function transit(){
 
     xhr.open("GET", "https://carbonfootprint1.p.rapidapi.com/CarbonFootprintFromPublicTransit?type=" + transit + "&distance=" + distance);
     xhr.setRequestHeader("x-rapidapi-host", "carbonfootprint1.p.rapidapi.com");
-    xhr.setRequestHeader("x-rapidapi-key", "c82c7bccc7msh4d7b58143210cc6p11a724jsn4efa085bcb43");
+    xhr.setRequestHeader("x-rapidapi-key", "55f7989e95msh4c82309a84b75bdp127c00jsnb436772e985d");
 
     xhr.send(data);
 }
@@ -95,7 +95,7 @@ function flight(){
 
     xhr.open("GET", "https://carbonfootprint1.p.rapidapi.com/CarbonFootprintFromFlight?type=" + flight + "&distance=" + distance);
     xhr.setRequestHeader("x-rapidapi-host", "carbonfootprint1.p.rapidapi.com");
-    xhr.setRequestHeader("x-rapidapi-key", "c82c7bccc7msh4d7b58143210cc6p11a724jsn4efa085bcb43");
+    xhr.setRequestHeader("x-rapidapi-key", "55f7989e95msh4c82309a84b75bdp127c00jsnb436772e985d");
 
     xhr.send(data);
 }
@@ -129,7 +129,7 @@ function energy(){
 
     xhr.open("GET", "https://carbonfootprint1.p.rapidapi.com/CleanHydroToCarbonFootprint?consumption=" + distance + "&energy=" + energy);
     xhr.setRequestHeader("x-rapidapi-host", "carbonfootprint1.p.rapidapi.com");
-    xhr.setRequestHeader("x-rapidapi-key", "c82c7bccc7msh4d7b58143210cc6p11a724jsn4efa085bcb43");
+    xhr.setRequestHeader("x-rapidapi-key", "55f7989e95msh4c82309a84b75bdp127c00jsnb436772e985d");
 
     xhr.send(data);
 }
@@ -202,7 +202,7 @@ function fuel(){
 
     xhr.open("GET", "https://carbonfootprint1.p.rapidapi.com/FuelToCO2e?litres=" + distance + "&type=" + fuel);
     xhr.setRequestHeader("x-rapidapi-host", "carbonfootprint1.p.rapidapi.com");
-    xhr.setRequestHeader("x-rapidapi-key", "c82c7bccc7msh4d7b58143210cc6p11a724jsn4efa085bcb43");
+    xhr.setRequestHeader("x-rapidapi-key", "55f7989e95msh4c82309a84b75bdp127c00jsnb436772e985d");
 
     xhr.send(data);
 }
@@ -270,6 +270,7 @@ function vegImpact() {
         document.getElementById('offset').innerHTML = 0;
     } else {
         document.getElementById('offset').innerHTML = (parseFloat(document.getElementById('offset').innerHTML) + (parseFloat(vegYear) * 907.185)).toFixed(3);
+        document.getElementById('vegYears').value = parseFloat(document.getElementById('vegYears').value) * 2;
     }
 }
 
@@ -279,19 +280,20 @@ function electricImpact() {
         document.getElementById('offset').innerHTML = 0;
     } else {
         document.getElementById('offset').innerHTML = (parseFloat(document.getElementById('offset').innerHTML) + (parseFloat(electricYear) * 2773.05)).toFixed(3);
+        document.getElementById('electricYears').value = parseFloat(document.getElementById('electricYears').value) * 2;
     }  
 }
 
 function led() {
     let led = document.getElementById('led').value;
     let ledYears = document.getElementById('ledYears').value;
-    console.log(led)
-    console.log(ledYears)
+
     
     if (led == null || ledYears == null) {
         document.getElementById('offset').innerHTML = 0;
     } else {
         document.getElementById('offset').innerHTML = (parseFloat(document.getElementById('offset').innerHTML + (parseFloat(led) * 1836.596 * parseFloat(ledYears))).toFixed(3));
+        document.getElementById('ledYears').value = parseFloat(document.getElementById('ledYears').value) * 2;
     }
 }
 
@@ -301,6 +303,7 @@ function heating() {
         document.getElementById('offset').innerHTML = 0;
     } else {
         document.getElementById('offset').innerHTML = (parseFloat(document.getElementById('offset').innerHTML) + (parseFloat(heatingYears) * 4672.00150001)).toFixed(3);
+        document.getElementById('heatingYears').value = parseFloat(document.getElementById('heatingYears').value) * 2;
     }
     
 }
@@ -311,6 +314,7 @@ function thrift(){
         document.getElementById('offset').innerHTML = 0;
     } else {
         document.getElementById('offset').innerHTML = (parseFloat(document.getElementById('offset').innerHTML) + (parseFloat(thiftYears) * 748)).toFixed(3);
+        document.getElementById('thriftYears').value = parseFloat(document.getElementById('thriftYears').value) * 2;
     }
 }
 
@@ -320,5 +324,6 @@ function renew(){
         document.getElementById('offset').innerHTML = 0;
     } else {
         document.getElementById('offset').innerHTML = (parseFloat(document.getElementById('offset').innerHTML) + (parseFloat(renew) * 8979.17)).toFixed(3);
+        document.getElementById('renew').value = parseFloat(document.getElementById('renew').value) * 2;
     }
 }
