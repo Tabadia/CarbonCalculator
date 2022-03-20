@@ -10,7 +10,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "tailwindcss": "^3.0.23"
+    "tailwindcss": "^3.0.23",
+    "tailwindcss-bg-svg": "^1.0.4"
   },
   "dependencies": {
     "browserify": "^17.0.0",

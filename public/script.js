@@ -266,19 +266,19 @@ function severity(id, maxNum, minNum, responseText) {
 
 function vegImpact() {
     let vegYear = document.getElementById('vegYears').value;
-    if (vegYear == 0 || vegYear == null) {
+    if (vegYear == null) {
         document.getElementById('offset').innerHTML = 0;
     } else {
-        document.getElementById('offset').innerHTML = (parseFloat(document.getElementById('offset').innerHTML) + parseFloat(vegYear) * 907.185).toFixed(3);
+        document.getElementById('offset').innerHTML = (parseFloat(document.getElementById('offset').innerHTML) + (parseFloat(vegYear) * 907.185)).toFixed(3);
     }
 }
 
 function electricImpact() {
     let electricYear = document.getElementById('electricYears').value;
-    if (electricYear == 0 || electricYear == null) {
+    if (electricYear == null) {
         document.getElementById('offset').innerHTML = 0;
     } else {
-        document.getElementById('offset').innerHTML = (parseFloat(document.getElementById('offset').innerHTML) + parseFloat(electricYear) * 2773.05).toFixed(3);
+        document.getElementById('offset').innerHTML = (parseFloat(document.getElementById('offset').innerHTML) + (parseFloat(electricYear) * 2773.05)).toFixed(3);
     }  
 }
 
@@ -288,37 +288,37 @@ function led() {
     console.log(led)
     console.log(ledYears)
     
-    if (led == 0 ||led == null || ledYears == 0 || ledYears == null) {
+    if (led == null || ledYears == null) {
         document.getElementById('offset').innerHTML = 0;
     } else {
-        document.getElementById('offset').innerHTML = (parseFloat(document.getElementById('offset').innerHTML) + (parseFloat(led) * 1836.596) * parseFloat(ledYears)).toFixed(3);
+        document.getElementById('offset').innerHTML = (parseFloat(document.getElementById('offset').innerHTML + (parseFloat(led) * 1836.596 * parseFloat(ledYears))).toFixed(3));
     }
 }
 
 function heating() {
     let heatingYears = document.getElementById('heatingYears').value;
-    if (heatingYears == 0 || heatingYears == null) {
+    if (heatingYears == null) {
         document.getElementById('offset').innerHTML = 0;
     } else {
-        document.getElementById('offset').innerHTML = (parseFloat(document.getElementById('offset').innerHTML) + parseFloat(heatingYears) * 4672.00150001).toFixed(3);
+        document.getElementById('offset').innerHTML = (parseFloat(document.getElementById('offset').innerHTML) + (parseFloat(heatingYears) * 4672.00150001)).toFixed(3);
     }
     
 }
 
 function thrift(){
     let thriftYears = document.getElementById('thriftYears').value;
-    if (thriftYears == 0 || thriftYears == null) {
+    if (thriftYears == null) {
         document.getElementById('offset').innerHTML = 0;
     } else {
-        document.getElementById('offset').innerHTML = (parseFloat(document.getElementById('offset').innerHTML) + parseFloat(thiftYears) * 748).toFixed(3);
+        document.getElementById('offset').innerHTML = (parseFloat(document.getElementById('offset').innerHTML) + (parseFloat(thiftYears) * 748)).toFixed(3);
     }
 }
 
 function renew(){
     let renew = document.getElementById('renew').value;
-    if (renew == 0 || renew == null) {
+    if (renew == null) {
         document.getElementById('offset').innerHTML = 0;
     } else {
-        document.getElementById('offset').innerHTML = (parseFloat(document.getElementById('offset').innerHTML) + parseFloat(renew) * 8979.17).toFixed(3);
+        document.getElementById('offset').innerHTML = (parseFloat(document.getElementById('offset').innerHTML) + (parseFloat(renew) * 8979.17)).toFixed(3);
     }
 }
