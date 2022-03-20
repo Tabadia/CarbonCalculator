@@ -20,13 +20,14 @@ function car(){
             responseText = this.responseText.replace('{\"carbonEquivalent\":','').replace('}','')
             document.getElementById('cf').innerHTML = (parseFloat(responseText) + parseFloat(document.getElementById('cf').innerHTML)).toFixed(3);
             treeCalc();
+            severity('cdist', .575576, .285)
         }
     });
 
 
     xhr.open("GET", "https://carbonfootprint1.p.rapidapi.com/CarbonFootprintFromCarTravel?vehicle=" + car + "&distance=" + distance);
     xhr.setRequestHeader("x-rapidapi-host", "carbonfootprint1.p.rapidapi.com");
-    xhr.setRequestHeader("x-rapidapi-key", "c010d70ccfmsh5313bb2f0b768e1p173ee6jsnd2fd1c4a5ecf");
+    xhr.setRequestHeader("x-rapidapi-key", "03e7f292ddmsh16a828de89a0aa6p119a75jsnb4e78093266a");
 
     xhr.send(data);
 }
@@ -54,12 +55,13 @@ function transit(){
             responseText = this.responseText.replace('{\"carbonEquivalent\":','').replace('}','')
             document.getElementById('cf').innerHTML = (parseFloat(responseText) + parseFloat(document.getElementById('cf').innerHTML)).toFixed(3);
             treeCalc();
+            severity('tdist', 0.26, 0.037, responseText)
         }
     });
 
     xhr.open("GET", "https://carbonfootprint1.p.rapidapi.com/CarbonFootprintFromPublicTransit?type=" + transit + "&distance=" + distance);
     xhr.setRequestHeader("x-rapidapi-host", "carbonfootprint1.p.rapidapi.com");
-    xhr.setRequestHeader("x-rapidapi-key", "c010d70ccfmsh5313bb2f0b768e1p173ee6jsnd2fd1c4a5ecf");
+    xhr.setRequestHeader("x-rapidapi-key", "03e7f292ddmsh16a828de89a0aa6p119a75jsnb4e78093266a");
 
     xhr.send(data);
 }
@@ -87,12 +89,13 @@ function flight(){
             responseText = this.responseText.replace('{\"carbonEquivalent\":','').replace('}','')
             document.getElementById('cf').innerHTML = (parseFloat(responseText) + parseFloat(document.getElementById('cf').innerHTML)).toFixed(3);
             treeCalc();
+            severity('fdist', 0.6175, 0.1545, responseText)
         }
     });
 
     xhr.open("GET", "https://carbonfootprint1.p.rapidapi.com/CarbonFootprintFromFlight?type=" + flight + "&distance=" + distance);
     xhr.setRequestHeader("x-rapidapi-host", "carbonfootprint1.p.rapidapi.com");
-    xhr.setRequestHeader("x-rapidapi-key", "c010d70ccfmsh5313bb2f0b768e1p173ee6jsnd2fd1c4a5ecf");
+    xhr.setRequestHeader("x-rapidapi-key", "03e7f292ddmsh16a828de89a0aa6p119a75jsnb4e78093266a");
 
     xhr.send(data);
 }
@@ -120,12 +123,13 @@ function energy(){
             responseText = this.responseText.replace('{\"carbonEquivalent\":','').replace('}','')
             document.getElementById('cf').innerHTML = (parseFloat(responseText) + parseFloat(document.getElementById('cf').innerHTML)).toFixed(3);
             treeCalc();
+            severity('edist', 0.061, 0.008, responseText)
         }
     });
 
     xhr.open("GET", "https://carbonfootprint1.p.rapidapi.com/CleanHydroToCarbonFootprint?consumption=" + distance + "&energy=" + energy);
     xhr.setRequestHeader("x-rapidapi-host", "carbonfootprint1.p.rapidapi.com");
-    xhr.setRequestHeader("x-rapidapi-key", "c010d70ccfmsh5313bb2f0b768e1p173ee6jsnd2fd1c4a5ecf");
+    xhr.setRequestHeader("x-rapidapi-key", "03e7f292ddmsh16a828de89a0aa6p119a75jsnb4e78093266a");
 
     xhr.send(data);
 }
@@ -166,6 +170,7 @@ function food(){
     console.log(kg)
     document.getElementById('cf').innerHTML = parseFloat(kg) + parseFloat(document.getElementById('cf').innerHTML);
     treeCalc();
+    severity('cal', 0.0141, 0.0006, kg)
 }
 
 function fuel(){
@@ -191,12 +196,13 @@ function fuel(){
             responseText = this.responseText.replace('{\"carbonEquivalent\":','').replace('}','')
             document.getElementById('cf').innerHTML = (parseFloat(responseText) + parseFloat(document.getElementById('cf').innerHTML)).toFixed(3);
             treeCalc();
+            severity('litre', 4.31212, 2.42959, responseText)
         }
     });
 
     xhr.open("GET", "https://carbonfootprint1.p.rapidapi.com/FuelToCO2e?litres=" + distance + "&type=" + fuel);
     xhr.setRequestHeader("x-rapidapi-host", "carbonfootprint1.p.rapidapi.com");
-    xhr.setRequestHeader("x-rapidapi-key", "c010d70ccfmsh5313bb2f0b768e1p173ee6jsnd2fd1c4a5ecf");
+    xhr.setRequestHeader("x-rapidapi-key", "03e7f292ddmsh16a828de89a0aa6p119a75jsnb4e78093266a");
 
     xhr.send(data);
 }
@@ -216,5 +222,40 @@ function treeCalc() {
     const treeDie = treeCO2 / treeAge;
     const numOfTreesD = cf / treeDie;
     //console.log(treeDie);
-    document.getElementById('treeKill').innerHTML = parseFloat(document.getElementById('treeKill').innerHTML) + parseFloat(numOfTreesD.toFixed(3));
+    document.getElementById('treeKill').innerHTML = (parseFloat(document.getElementById('treeKill').innerHTML) + parseFloat(numOfTreesD)).toFixed(3);
+}
+
+function severity(id, maxNum, minNum, responseText) {
+    let cf = parseFloat(responseText);
+    let d = document.getElementById(id).value
+    const max = maxNum*d;
+    const min = minNum*d;
+    let maxDif = max - cf;
+    let minDif = cf - min;
+    let mid = (maxDif + minDif)/2;
+    let midDif = mid - cf;
+    let severity = "";
+    if(maxDif < minDif){
+        if (maxDif < midDif){
+            severity = 'High';
+        }
+        else {
+            severity = 'Medium High';
+        }
+
+    }
+    else if (minDif < maxDif){
+        if (minDif < midDif){
+            severity = 'Low';
+        }
+        else {
+            severity = 'Medium Low';
+        }
+    }
+    else {
+        severity = 'Medium'
+    }
+
+    console.log(severity);
+    document.getElementById('severity').innerHTML = severity;
 }

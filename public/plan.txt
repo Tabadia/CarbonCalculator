@@ -1,8 +1,9 @@
 To do:
 Demo Video
+Domain
+Carbon Offset
 
 In progress:
-CO2e scale/severity indicator - thalen
 
 Done:
 Extra fancy CSS
@@ -21,3 +22,4 @@ Github
 Github Pages
 New APIs/data
 Convert to number of trees or other easy number
+CO2e scale/severity indicator

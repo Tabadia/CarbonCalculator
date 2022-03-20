@@ -18,7 +18,7 @@
         
         <div id="car" class="border-2 rounded-lg m-5 py-8 p-5 sm:w-1/4 w-11/12 border-4 border-green-400 rounded-2xl animate-slideL bg-white/30 hover:bg-white/50">
             <h1 class="text-xl font-bold">Car</h1>
-                Choose a vehicle: 
+                Vehicle type: 
                 <select name="cars" id="cars" class="m-2">
                     <option value="SmallDieselCar">Small Diesel Car</option>
                     <option value="MediumDieselCar">Medium Diesel Car</option>
@@ -48,7 +48,7 @@
 
         <div id="ptrans" class="border-2 rounded-lg m-5 py-8 p-5 sm:w-1/4 w-11/12 border-4 border-green-400 rounded-2xl animate-fadeL bg-white/30 hover:bg-white/50">
             <h1 class="text-xl font-bold">Public transit</h1>
-                Choose a vehicle: 
+                Vehicle type: 
                 <select name="transit" id="transit" class="m-2">
                     <option value="Taxi">Taxi</option>
                     <option value="ClassicBus">Classic Bus</option>
@@ -68,7 +68,7 @@
 
         <div id="plane" class="border-2 rounded-lg m-5 py-8 p-5 sm:w-1/4 w-11/12 border-4 border-green-400 rounded-2xl animate-slideR bg-white/30 hover:bg-white/50">
             <h1 class="text-xl font-bold">Plane flight</h1>
-                Choose a flight: 
+                Flight type: 
                 <select name="flight" id="flight" class="m-2">
                     <option value="DomesticFlight">Domestic Flight</option>
                     <option value="ShortEconomyClassFlight">Short Economy Class Flight</option>
@@ -86,7 +86,7 @@
 
         <div id="energy" class="border-2 rounded-lg m-5 py-8 p-5 sm:w-1/4 w-11/12 border-4 border-green-400 rounded-2xl animate-slideL bg-white/30 hover:bg-white/50">
             <h1 class="text-xl font-bold">Clean Energy (Monthly)</h1>
-                Choose an energy type: 
+                Energy type: 
                 <select name="etype" id="etype" class="m-2">
                     <option value="Solar">Solar</option>
                     <option value="Wind">Wind</option>
@@ -94,7 +94,6 @@
                     <option value="Biomass">Biomass</option>
                     <option value="Geothermal">Geothermal</option>
                     <option value="Tidal">Tidal</option>
-                    <option value="OtherCleanEnergy">Other Clean Energy</option>
                 </select>
                 <br>
                 Consumption (KWH):
@@ -105,7 +104,7 @@
 
         <div id="food" class="border-2 rounded-lg m-5 py-8 p-5 sm:w-1/4 w-11/12 border-4 border-green-400 rounded-2xl animate-fadeL bg-white/30 hover:bg-white/50">
             <h1 class="text-xl font-bold">Food</h1>
-                Choose a food type: 
+                Food type: 
                 <select name="ftype" id="ftype" class="m-2">
                     <option value="d">Drinks</option>
                     <option value="ss">Snacks/Sugar</option>
@@ -113,7 +112,6 @@
                     <option value="f">Fruit</option>
                     <option value="v">Vegetables</option>
                     <option value="cb">Cereals/Breads</option>
-                    <option value="d">Dairy</option>
                     <option value="cfp">Chicken/Fish/Pork</option>
                     <option value="d">Dairy</option>
                     <option value="bl">Beef/Lamb</option>
@@ -164,8 +162,9 @@
     
 
     </div>
-    <div id="result" class="text-center text-xl m-5">
-        <h1>Your Carbon footprint in tree kills: <span id="treeKill" class="font-bold cursor-pointer">0</span></h1>
+    <div id="" class="text-center text-xl m-5">
+        <h1>Your carbon footprint in tree kills: <span id="treeKill" class="font-bold">0</span></h1>
+        <h1>Your carbon footprint compared to other options: <span id="severity" class="font-bold">Neutral</span></h1>
     </div>
     
     

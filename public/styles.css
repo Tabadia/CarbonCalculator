@@ -722,12 +722,18 @@ Ensure the default browser behavior of the `hidden` attribute.
   display: none;
 }
 
-.h-screen {
-  height: 100vh;
+.h-max {
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
 }
 
 .h-5 {
   height: 1.25rem;
+}
+
+.h-screen {
+  height: 100vh;
 }
 
 .h-8 {
@@ -756,12 +762,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .h-64 {
   height: 16rem;
-}
-
-.h-max {
-  height: -webkit-max-content;
-  height: -moz-max-content;
-  height: max-content;
 }
 
 .w-64 {
@@ -911,23 +911,29 @@ Ensure the default browser behavior of the `hidden` attribute.
           animation: slideL 1s 0s;
 }
 
-@-webkit-keyframes ping {
-  75%, 100% {
-    transform: scale(2);
+@-webkit-keyframes fadeL {
+  0%, 50% {
     opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
   }
 }
 
-@keyframes ping {
-  75%, 100% {
-    transform: scale(2);
+@keyframes fadeL {
+  0%, 50% {
     opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
   }
 }
 
-.animate-ping {
-  -webkit-animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
-          animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+.animate-fadeL {
+  -webkit-animation: fadeL 1s 0s;
+          animation: fadeL 1s 0s;
 }
 
 @-webkit-keyframes slideR {
@@ -963,29 +969,23 @@ Ensure the default browser behavior of the `hidden` attribute.
           animation: slideR 1s 0s;
 }
 
-@-webkit-keyframes fadeL {
-  0%, 50% {
+@-webkit-keyframes ping {
+  75%, 100% {
+    transform: scale(2);
     opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
   }
 }
 
-@keyframes fadeL {
-  0%, 50% {
+@keyframes ping {
+  75%, 100% {
+    transform: scale(2);
     opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
   }
 }
 
-.animate-fadeL {
-  -webkit-animation: fadeL 1s 0s;
-          animation: fadeL 1s 0s;
+.animate-ping {
+  -webkit-animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+          animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
 
 .cursor-pointer {
@@ -1375,13 +1375,13 @@ Ensure the default browser behavior of the `hidden` attribute.
   border-width: 2px;
 }
 
+.hover\:bg-white\/50:hover {
+  background-color: rgb(255 255 255 / 0.5);
+}
+
 .hover\:bg-white:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-
-.hover\:bg-white\/50:hover {
-  background-color: rgb(255 255 255 / 0.5);
 }
 
 .hover\:text-green-400:hover {
@@ -1400,12 +1400,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 @media (min-width: 1536px) {
-  .\32xl\:h-max {
-    height: -webkit-max-content;
-    height: -moz-max-content;
-    height: max-content;
-  }
-
   .\32xl\:h-screen {
     height: 100vh;
   }
